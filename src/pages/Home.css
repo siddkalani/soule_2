@@ -1,0 +1,302 @@
+.home-page {
+  position: relative;
+}
+
+.home-page > *:not(.hero) {
+  position: relative;
+  z-index: 1;
+}
+
+
+
+.about-soule {
+  padding: 4rem 0;
+  background: white;
+  margin-top: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.about-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 4rem;
+}
+
+.about-header {
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.about-header h2 {
+  font-family: 'PF Marlet Display';
+  font-size: 5rem;
+  font-weight: 300;
+  letter-spacing: -1px;
+  margin: 0;
+  display: inline-block;
+  position: relative;
+  z-index: 5;
+}
+
+.about-header h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0rem;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: #000;
+  transition: width 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: 20;
+}
+
+.about-soule:hover .about-header h2::after {
+  width: 100%;
+}
+
+.about-body {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4rem;
+  align-items: start;
+}
+
+.about-text-columns {
+  display: flex;
+  gap: 3rem;
+  max-width: 900px;
+}
+
+.about-text-columns p {
+  font-size: 1rem;
+  line-height: 1.9;
+  color: #333;
+  font-weight: 300;
+  margin: 0;
+  flex: 1;
+}
+
+.about-button {
+  display: flex;
+  align-items: flex-start;
+  padding-top: 0.5rem;
+}
+
+/* Three Cards Section */
+.three-cards-section {
+  display: flex;
+  height: 100vh;
+  min-height: 700px;
+  margin-bottom: 0;
+  position: relative;
+  z-index: 1;
+  gap: 0;
+}
+
+.three-cards-section .project-card:nth-child(1) {
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.three-cards-section .project-card:nth-child(2) {
+  animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+.three-cards-section .project-card:nth-child(3) {
+  animation: fadeInUp 0.8s ease-out 0.6s both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1024px) {
+  .three-cards-section {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    height: auto;
+  }
+}
+
+.about-text {
+  max-width: 900px;
+  margin: 0 auto 3rem;
+}
+
+.about-text p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+
+/* Clear separation for sections */
+.home-page > section {
+  position: relative;
+  clear: both;
+}
+
+.home-page .project-showcase {
+  margin-top: 0;
+  position: relative;
+  z-index: 0;
+}
+
+/* Categories */
+.categories {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  min-height: 500px;
+  max-height: 600px;
+}
+
+.category-item {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.category-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.category-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, transparent 40%, rgba(0, 0, 0, 0.7));
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 2.5rem;
+  transition: background 0.3s;
+}
+
+.category-item:hover .category-overlay {
+  background: linear-gradient(to bottom, transparent 20%, rgba(0, 0, 0, 0.8));
+}
+
+.category-overlay h3 {
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 300;
+  letter-spacing: 3px;
+}
+
+@media (max-width: 1024px) {
+  .categories {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+  
+  .category-item {
+    height: 400px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .about-body {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .about-text-columns {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .about-button {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-content {
+    padding: 0 1.5rem;
+  }
+  
+  .about-header h2 {
+    font-size: 3rem;
+  }
+  
+  .about-body {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: left;
+  }
+  
+  .about-text-columns {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .about-text-columns p {
+    font-size: 0.95rem;
+  }
+  
+  .three-cards-section {
+    flex-direction: column;
+    height: auto;
+    min-height: auto;
+    gap: 1.25rem;
+    padding: 1.5rem;
+  }
+
+  .three-cards-section .project-card {
+    min-height: 320px;
+  }
+  
+  .category-item {
+    height: 60vh;
+    min-height: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-content {
+    padding: 0 1rem;
+  }
+  
+  .about-body {
+    gap: 1.5rem;
+  }
+  
+  .about-header h2 {
+    font-size: 2.5rem;
+  }
+  
+  .about-text-columns p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+  
+  .three-cards-section {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .three-cards-section .project-card {
+    min-height: 260px;
+  }
+
+  .category-item {
+    height: 50vh;
+    min-height: 350px;
+  }
+  
+  .category-item h3 {
+    font-size: 1.2rem;
+  }
+}
