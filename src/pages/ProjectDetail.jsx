@@ -83,8 +83,13 @@ const ProjectDetail = () => {
         <div className="gallery-container">
           <div className="gallery-grid">
             {project.images.slice(1, 5).map((image, index) => (
-              <div key={index} className="gallery-item">
-                <FlashlightImage src={image} alt={`${project.title} view ${index + 1}`} className="gallery-image" />
+              <div key={index} className={`gallery-item ${index === 0 ? 'gallery-item--wide' : ''}`}>
+                <img 
+                  src={image} 
+                  alt={`${project.title} view ${index + 1}`} 
+                  className="gallery-image"
+                  loading="lazy"
+                />
               </div>
             ))}
           </div>
@@ -97,8 +102,13 @@ const ProjectDetail = () => {
           <div className="gallery-container">
             <div className="extended-gallery-grid">
               {project.images.slice(5).map((image, index) => (
-                <div key={index} className="extended-gallery-item">
-                  <FlashlightImage src={image} alt={`${project.title} detail ${index + 1}`} className="extended-gallery-image" />
+                <div key={index} className={`extended-gallery-item ${index % 5 === 0 ? 'extended-gallery-item--featured' : ''}`}>
+                  <img 
+                    src={image} 
+                    alt={`${project.title} detail ${index + 1}`} 
+                    className="extended-gallery-image"
+                    loading="lazy"
+                  />
                 </div>
               ))}
             </div>

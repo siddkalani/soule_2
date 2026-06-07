@@ -123,6 +123,19 @@
   text-align: center;
 }
 
+.portfolio-item-type {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.7rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  text-align: center;
+  margin-top: 0.3rem;
+}
+
+.portfolio-overlay {
+  flex-direction: column;
+}
+
 @media (max-width: 1024px) {
   .portfolio-grid {
     grid-template-columns: repeat(3, 1fr);

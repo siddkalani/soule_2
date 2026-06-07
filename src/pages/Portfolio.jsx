@@ -9,19 +9,14 @@ import './Portfolio.css';
 const Portfolio = () => {
   const [activeFilter, setActiveFilter] = useState('all');
   
-  // Create multiple projects from the base project data for display
-  const allProjects = [];
-  const baseProject = projectsData[0];
-  
-  // Generate multiple project variations using different images
-  baseProject.images.forEach((image, index) => {
-    allProjects.push({
-      id: baseProject.id,
-      title: baseProject.title,
-      image: image,
-      category: baseProject.category
-    });
-  });
+  // Use all projects directly
+  const allProjects = projectsData.map(project => ({
+    id: project.id,
+    title: project.title,
+    type: project.type,
+    image: project.images[0],
+    category: project.category
+  }));
   
   const filteredProjects = activeFilter === 'all' 
     ? allProjects 
@@ -58,6 +53,7 @@ const Portfolio = () => {
             <FlashlightImage src={project.image} alt={project.title} />
             <div className="portfolio-overlay">
               <h3>{project.title.toUpperCase()}</h3>
+              <p className="portfolio-item-type">{project.type}</p>
             </div>
           </Link>
         ))}

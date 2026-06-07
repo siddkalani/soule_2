@@ -33,9 +33,9 @@ const Home = () => {
   
   // Define images for each category
   const categoryImages = {
-    ARCHITECTURAL: IMAGES.bedroom4,
-    INTERIOR: IMAGES.kalpesh5,
-    LANDSCAPE: IMAGES.bedroom5
+    ARCHITECTURAL: IMAGES.p668_exterior1,
+    INTERIOR: IMAGES.p162_foyer,
+    LANDSCAPE: IMAGES.p668_landscape1
   };
   
   // Framer Motion variants for animations
@@ -63,9 +63,9 @@ const Home = () => {
       <Hero 
         title="Design with Soul"
         subtitle="Built with Precision"
-        backgroundImage={IMAGES.bedroom4}
+        backgroundImage={IMAGES.p668_exterior1}
         communityName=""
-        slideImages={[IMAGES.bedroom4]}
+        slideImages={[IMAGES.p668_exterior1, IMAGES.p162_exterior1, IMAGES.p507_living]}
       />
 
       
@@ -131,7 +131,7 @@ const Home = () => {
         />
       </section>
       
-      {/* Project Showcase - Single Full Width */}
+      {/* Project Showcase - Villa 668 */}
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -139,15 +139,15 @@ const Home = () => {
         variants={fadeIn}
       >
         <ProjectShowcase 
-          title={featuredProject.title}
-          description="A timeless, mahogany residence set ablaze in the heart of Dubai's most emerging global community. Combining a modern family living experience and ultra-luxe finishes, our client's home is a lakeside oasis. It offers a modern family living experience with ultra-luxe finishes, merging natural materials and light."
-          image={IMAGES.kalpesh5}
+          title={projectsData[0].title}
+          description={projectsData[0].description}
+          image={IMAGES.p668_exterior2}
           dark={true}
           link="/project/1"
         />
       </motion.div>
       
-      {/* Second Project Showcase - Reversed */}
+      {/* Project Showcase - Villa 162 */}
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -155,12 +155,28 @@ const Home = () => {
         variants={fadeIn}
       >
         <ProjectShowcase 
-          title={featuredProject.title}
-          description="A private waterfront residence situated in the heart of Dubai's most prestigious gated community. Designed for a modern family that values clean lines, natural materials, and open air connectivity."
-          image={IMAGES.kalpesh4}
+          title={projectsData[1].title}
+          description={projectsData[1].description}
+          image={IMAGES.p162_exterior1}
           dark={true}
           reverse={true}
-          link="/project/1"
+          link="/project/2"
+        />
+      </motion.div>
+
+      {/* Project Showcase - Villa 507 */}
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={fadeIn}
+      >
+        <ProjectShowcase 
+          title={projectsData[2].title}
+          description={projectsData[2].description}
+          image={IMAGES.p507_kitchen1}
+          dark={true}
+          link="/project/3"
         />
       </motion.div>
       
