@@ -68,6 +68,34 @@ export const IMAGES = {
   p507_spa: '/assets/images/projects/507/interiors/spa-1.jpg',
   p507_gym: '/assets/images/projects/507/interiors/gym-1.jpg',
 
+  // Project 668 - Additional interiors
+  p668_mithilWalkin: '/assets/images/projects/668/interiors/mithil-walkin-1.jpeg',
+  p668_formalHandwash: '/assets/images/projects/668/interiors/formal-handwash-1.jpg',
+  p668_familyHandwash: '/assets/images/projects/668/interiors/family-handwash-1.jpg',
+
+  // The Key - Common Areas
+  thekey_reception1: '/assets/images/projects/thekey/reception-1.jpeg',
+  thekey_reception2: '/assets/images/projects/thekey/reception-2.jpeg',
+  thekey_reception3: '/assets/images/projects/thekey/reception-3.jpeg',
+  thekey_reception4: '/assets/images/projects/thekey/reception-4.jpeg',
+  thekey_gym1: '/assets/images/projects/thekey/gym-1.jpeg',
+  thekey_gym2: '/assets/images/projects/thekey/gym-2.jpeg',
+  thekey_corridor1: '/assets/images/projects/thekey/corridor-1.jpeg',
+  thekey_corridor2: '/assets/images/projects/thekey/corridor-2.jpeg',
+  thekey_parking1: '/assets/images/projects/thekey/parking-1.jpeg',
+
+  // Axila - Common Areas
+  axila_reception1: '/assets/images/projects/axila/reception-1.jpg',
+  axila_reception2: '/assets/images/projects/axila/reception-2.jpg',
+  axila_reception3: '/assets/images/projects/axila/reception-3.jpg',
+  axila_gym1: '/assets/images/projects/axila/gym-1.jpg',
+  axila_gym2: '/assets/images/projects/axila/gym-2.jpg',
+  axila_spa1: '/assets/images/projects/axila/spa-1.jpg',
+  axila_spa2: '/assets/images/projects/axila/spa-2.jpg',
+  axila_corridor1: '/assets/images/projects/axila/corridor-1.jpg',
+  axila_corridor2: '/assets/images/projects/axila/corridor-2.jpg',
+  axila_pod1: '/assets/images/projects/axila/pod-1.jpg',
+
   // Team
   sonaliPotdar: '/assets/images/team/sonali-potdar.jpeg',
   siddheshMule: '/assets/images/team/siddhesh-mule.jpeg'

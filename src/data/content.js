@@ -23,8 +23,9 @@ export const projectsData = [
       IMAGES.p668_bedroom,
       IMAGES.p668_office,
       IMAGES.p668_guestBedroom,
-      IMAGES.p668_landscape2,
-      IMAGES.p668_landscape3,
+      IMAGES.p668_mithilWalkin,
+      IMAGES.p668_formalHandwash,
+      IMAGES.p668_familyHandwash,
       IMAGES.p668_exterior1,
       IMAGES.p668_exterior2,
       IMAGES.p668_exterior3,
@@ -103,6 +104,69 @@ export const projectsData = [
       IMAGES.p507_roofToilet
     ],
     category: 'residential',
+    featured: true
+  },
+  {
+    id: 4,
+    title: 'The Key',
+    location: 'Dubai, UAE',
+    type: 'Commercial — Common Areas & Units',
+    completionYear: '2025',
+    plotArea: '',
+    description: 'A premium commercial development featuring sophisticated common areas designed for modern professionals. The reception, gym, and corridors create a cohesive luxury experience.',
+    challenge: 'Designing common areas that elevate everyday experiences for residents while maintaining a unified design language throughout.',
+    solution: 'Bold material choices and dramatic lighting define each space — from the grand reception to the state-of-the-art gym — creating memorable first impressions at every turn.',
+    technologies: [
+      'Feature lighting installations',
+      'Premium stone and metal finishes',
+      'Climate-controlled gym equipment',
+      'Smart access systems',
+      'Acoustic engineering'
+    ],
+    images: [
+      IMAGES.thekey_reception1,
+      IMAGES.thekey_reception2,
+      IMAGES.thekey_reception3,
+      IMAGES.thekey_reception4,
+      IMAGES.thekey_gym1,
+      IMAGES.thekey_gym2,
+      IMAGES.thekey_corridor1,
+      IMAGES.thekey_corridor2,
+      IMAGES.thekey_parking1
+    ],
+    category: 'commercial',
+    featured: true
+  },
+  {
+    id: 5,
+    title: 'Axila',
+    location: 'Dubai, UAE',
+    type: 'Commercial — Common Areas & Units',
+    completionYear: '2025',
+    plotArea: '',
+    description: 'A modern mixed-use development with premium amenities. From the striking reception to the wellness spa and fitness center, every common space is designed to inspire.',
+    challenge: 'Creating distinct yet cohesive experiences across reception, gym, spa, and circulation areas within a unified architectural envelope.',
+    solution: 'A palette of natural materials — stone, wood, and living greenery — connects all spaces, while bespoke lighting defines the mood of each zone.',
+    technologies: [
+      'Biophilic design elements',
+      'Spa-grade wellness systems',
+      'High-end gym specifications',
+      'Smart building management',
+      'Premium acoustic panels'
+    ],
+    images: [
+      IMAGES.axila_reception1,
+      IMAGES.axila_reception2,
+      IMAGES.axila_reception3,
+      IMAGES.axila_gym1,
+      IMAGES.axila_gym2,
+      IMAGES.axila_spa1,
+      IMAGES.axila_spa2,
+      IMAGES.axila_corridor1,
+      IMAGES.axila_corridor2,
+      IMAGES.axila_pod1
+    ],
+    category: 'commercial',
     featured: true
   }
 ];

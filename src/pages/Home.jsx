@@ -34,7 +34,7 @@ const Home = () => {
   // Define images for each category
   const categoryImages = {
     ARCHITECTURAL: IMAGES.p162_exterior1,
-    INTERIOR: IMAGES.kalpesh6,
+    INTERIOR: IMAGES.kalpesh5,
     LANDSCAPE: IMAGES.p162_exterior3
   };
   
