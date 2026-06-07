@@ -33,9 +33,9 @@ const Home = () => {
   
   // Define images for each category
   const categoryImages = {
-    ARCHITECTURAL: IMAGES.p668_exterior1,
-    INTERIOR: IMAGES.p162_foyer,
-    LANDSCAPE: IMAGES.p668_landscape1
+    ARCHITECTURAL: IMAGES.p162_exterior1,
+    INTERIOR: IMAGES.p668_kalpeshBedroom,
+    LANDSCAPE: IMAGES.p162_exterior3
   };
   
   // Framer Motion variants for animations
@@ -63,9 +63,9 @@ const Home = () => {
       <Hero 
         title="Design with Soul"
         subtitle="Built with Precision"
-        backgroundImage={IMAGES.p668_kalpeshBedroom}
+        backgroundImage={IMAGES.bedroom4}
         communityName=""
-        slideImages={[IMAGES.p668_kalpeshBedroom, IMAGES.p162_exterior1, IMAGES.p507_living]}
+        slideImages={[IMAGES.bedroom4]}
       />
 
       
@@ -109,6 +109,7 @@ const Home = () => {
           image={categoryImages.ARCHITECTURAL}
           category="ARCHITECTURAL"
           logo={IMAGES.souleLogo}
+          link="/portfolio"
           onMouseEnter={() => setHoveredCategory('ARCHITECTURAL')}
           onMouseLeave={() => setHoveredCategory(null)}
           isHovered={hoveredCategory === 'ARCHITECTURAL'}
@@ -117,6 +118,7 @@ const Home = () => {
           image={categoryImages.INTERIOR}
           category="INTERIOR"
           logo={IMAGES.souleLogo}
+          link="/portfolio"
           onMouseEnter={() => setHoveredCategory('INTERIOR')}
           onMouseLeave={() => setHoveredCategory(null)}
           isHovered={hoveredCategory === 'INTERIOR'}
@@ -125,6 +127,7 @@ const Home = () => {
           image={categoryImages.LANDSCAPE}
           category="LANDSCAPE"
           logo={IMAGES.souleLogo}
+          link="/portfolio"
           onMouseEnter={() => setHoveredCategory('LANDSCAPE')}
           onMouseLeave={() => setHoveredCategory(null)}
           isHovered={hoveredCategory === 'LANDSCAPE'}

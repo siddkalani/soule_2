@@ -1,3 +1,9 @@
+.project-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: contents;
+}
+
 .project-card {
   position: relative;
   overflow: hidden;

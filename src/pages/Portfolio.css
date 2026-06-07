@@ -94,25 +94,32 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+.portfolio-item:hover img {
+  filter: brightness(0.4);
+  transform: scale(1.03);
 }
 
 .portfolio-overlay {
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
   right: 0;
-  bottom: 0;
-  background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.8));
   display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  padding: 1.5rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 2rem 1.5rem;
   opacity: 0;
-  transition: opacity 0.3s;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
 .portfolio-item:hover .portfolio-overlay {
   opacity: 1;
+  transform: translateY(0);
 }
 
 .portfolio-overlay h3 {
@@ -130,10 +137,6 @@
   letter-spacing: 1px;
   text-align: center;
   margin-top: 0.3rem;
-}
-
-.portfolio-overlay {
-  flex-direction: column;
 }
 
 @media (max-width: 1024px) {

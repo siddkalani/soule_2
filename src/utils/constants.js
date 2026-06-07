@@ -66,7 +66,11 @@ export const IMAGES = {
   p507_roofToilet: '/assets/images/projects/507/interiors/roof-toilet-1.jpg',
   p507_living: '/assets/images/projects/507/interiors/living-1.jpg',
   p507_spa: '/assets/images/projects/507/interiors/spa-1.jpg',
-  p507_gym: '/assets/images/projects/507/interiors/gym-1.jpg'
+  p507_gym: '/assets/images/projects/507/interiors/gym-1.jpg',
+
+  // Team
+  sonaliPotdar: '/assets/images/team/sonali-potdar.jpeg',
+  siddheshMule: '/assets/images/team/siddhesh-mule.jpeg'
 };
 
 export const FONTS = {

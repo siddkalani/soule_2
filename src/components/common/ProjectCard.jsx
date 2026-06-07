@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import './ProjectCard.css';
 import FlashlightImage from './FlashlightImage';
 
@@ -9,11 +10,16 @@ const ProjectCard = ({
   description, 
   overlay = true, 
   logo, 
+  link,
   onMouseEnter, 
   onMouseLeave, 
   isHovered
 }) => {
+  const Wrapper = link ? Link : 'div';
+  const wrapperProps = link ? { to: link, className: 'project-card-link' } : {};
+
   return (
+    <Wrapper {...wrapperProps}>
     <motion.div 
       className={`project-card ${isHovered ? 'is-hovered' : ''}`}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -49,6 +55,7 @@ const ProjectCard = ({
         {description && <p>{description}</p>}
       </motion.div>
     </motion.div>
+    </Wrapper>
   );
 };
 

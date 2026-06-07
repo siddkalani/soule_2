@@ -166,14 +166,16 @@ export const teamData = [
   {
     id: 1,
     name: 'Sonali Potdar',
-    role: 'FOUNDER',
-    image: IMAGES.original
+    role: 'FOUNDER & CEO',
+    phone: '+971502702108',
+    image: IMAGES.sonaliPotdar
   },
   {
     id: 2,
     name: 'Siddhesh Mule',
-    role: 'MANAGING DIRECTORY',
-    image: IMAGES.original
+    role: 'MANAGING DIRECTOR',
+    phone: '+971504452108',
+    image: IMAGES.siddheshMule
   }
 ];
 
