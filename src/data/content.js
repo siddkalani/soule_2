@@ -19,16 +19,18 @@ export const projectsData = [
       'Landscape integration with architecture'
     ],
     images: [
+      IMAGES.p668_kalpeshBedroom,
+      IMAGES.p668_bedroom,
+      IMAGES.p668_office,
+      IMAGES.p668_guestBedroom,
+      IMAGES.p668_landscape2,
+      IMAGES.p668_landscape3,
       IMAGES.p668_exterior1,
       IMAGES.p668_exterior2,
       IMAGES.p668_exterior3,
       IMAGES.p668_landscape1,
       IMAGES.p668_landscape2,
       IMAGES.p668_landscape3,
-      IMAGES.p668_bedroom,
-      IMAGES.p668_kalpeshBedroom,
-      IMAGES.p668_guestBedroom,
-      IMAGES.p668_office,
       IMAGES.p668_powderRoom,
       IMAGES.p668_kidsRoom
     ],

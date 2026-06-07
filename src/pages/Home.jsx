@@ -63,9 +63,9 @@ const Home = () => {
       <Hero 
         title="Design with Soul"
         subtitle="Built with Precision"
-        backgroundImage={IMAGES.p668_exterior1}
+        backgroundImage={IMAGES.p668_kalpeshBedroom}
         communityName=""
-        slideImages={[IMAGES.p668_exterior1, IMAGES.p162_exterior1, IMAGES.p507_living]}
+        slideImages={[IMAGES.p668_kalpeshBedroom, IMAGES.p162_exterior1, IMAGES.p507_living]}
       />
 
       
@@ -141,7 +141,7 @@ const Home = () => {
         <ProjectShowcase 
           title={projectsData[0].title}
           description={projectsData[0].description}
-          image={IMAGES.p668_exterior2}
+          image={IMAGES.p668_bedroom}
           dark={true}
           link="/project/1"
         />

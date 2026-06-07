@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { projectsData } from '../data/content';
 import ContactForm from '../components/sections/ContactForm';
@@ -7,9 +6,6 @@ import FlashlightImage from '../components/common/FlashlightImage';
 import './Portfolio.css';
 
 const Portfolio = () => {
-  const [activeFilter, setActiveFilter] = useState('all');
-  
-  // Use all projects directly
   const allProjects = projectsData.map(project => ({
     id: project.id,
     title: project.title,
@@ -18,33 +14,11 @@ const Portfolio = () => {
     category: project.category
   }));
   
-  const filteredProjects = activeFilter === 'all' 
-    ? allProjects 
-    : allProjects.filter(project => project.category === activeFilter);
-  
   return (
     <div className="portfolio-page">
-      {/* Filter Navigation */}
-      <nav className="portfolio-nav">
-        <ul>
-          <li className={activeFilter === 'all' ? 'active' : ''}>
-            <button onClick={() => setActiveFilter('all')}>ALL</button>
-          </li>
-          <li className={activeFilter === 'interiors' ? 'active' : ''}>
-            <button onClick={() => setActiveFilter('interiors')}>ARCHITECTURAL</button>
-          </li>
-          <li className={activeFilter === 'architecture' ? 'active' : ''}>
-            <button onClick={() => setActiveFilter('architecture')}>INTERIOR</button>
-          </li>
-          <li className={activeFilter === 'residential' ? 'active' : ''}>
-            <button onClick={() => setActiveFilter('residential')}>LANDSCAPE</button>
-          </li>
-        </ul>
-      </nav>
-      
       {/* Projects Grid */}
       <section className="portfolio-grid">
-        {filteredProjects.map((project, index) => (
+        {allProjects.map((project, index) => (
           <Link 
             key={index} 
             to={`/project/${project.id}`} 

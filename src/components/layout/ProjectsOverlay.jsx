@@ -59,43 +59,6 @@ const ProjectsOverlay = ({ isOpen, onClose, isDarkTheme }) => {
               </Link>
             </div>
           </div>
-          
-          <div className="menu-section">
-            <h2>SERVICES</h2>
-            <div className="menu-links">
-              <Link to="/portfolio?category=architectural-visualization" onClick={onClose}>
-                <span className="link-number">01</span>
-                <div className="link-content">
-                  <span className="link-title">ARCHITECTURAL VISUALIZATION</span>
-                  <span className="link-desc">Photorealistic renders & 3D designs</span>
-                </div>
-              </Link>
-              
-              <Link to="/portfolio?category=interior-design" onClick={onClose}>
-                <span className="link-number">02</span>
-                <div className="link-content">
-                  <span className="link-title">INTERIOR DESIGN</span>
-                  <span className="link-desc">Luxury residential interiors</span>
-                </div>
-              </Link>
-              
-              <Link to="/portfolio?category=landscape-design" onClick={onClose}>
-                <span className="link-number">03</span>
-                <div className="link-content">
-                  <span className="link-title">LANDSCAPE DESIGN</span>
-                  <span className="link-desc">Outdoor spaces and architectural landscapes</span>
-                </div>
-              </Link>
-              
-              <Link to="/portfolio?category=project-execution" onClick={onClose}>
-                <span className="link-number">04</span>
-                <div className="link-content">
-                  <span className="link-title">PROJECT EXECUTION</span>
-                  <span className="link-desc">End-to-end coordination with premier craftsmen</span>
-                </div>
-              </Link>
-            </div>
-          </div>
         </div>
         
         <div className="overlay-footer">
