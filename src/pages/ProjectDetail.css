@@ -59,9 +59,9 @@
 }
 
 .hero-content-wrapper {
-  max-width: 1400px;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 4rem;
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 4rem;
@@ -69,7 +69,7 @@
 }
 
 .project-title-section h1.project-main-title {
-  font-family: 'PF Marlet Display', serif;
+  font-family: 'Optima', serif;
   font-size: 4.5rem;
   font-weight: 300;
   margin-bottom: 1.5rem;
@@ -119,9 +119,9 @@
 }
 
 .content-container {
-  max-width: 1400px;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 4rem;
 }
 
 .content-grid {
@@ -181,44 +181,43 @@
 
 /* Project Gallery Section */
 .project-gallery-section {
-  padding: 4rem 0 6rem;
+  padding: 0;
   background: #000;
 }
 
 .gallery-container {
-  max-width: 1400px;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0;
 }
 
-.gallery-heading {
-  font-size: 0.9rem;
-  letter-spacing: 3px;
-  color: rgba(255, 255, 255, 0.6);
-  margin-bottom: 2rem;
-  font-weight: 400;
-}
-
-/* Masonry Gallery */
-.gallery-masonry {
+/* Gallery Row - 1 large + 2 stacked */
+.gallery-row {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.5rem;
+  grid-template-columns: 2fr 1fr;
+  gap: 4px;
+  margin-bottom: 4px;
 }
 
-.masonry-item {
+.gallery-row--right {
+  grid-template-columns: 1fr 2fr;
+}
+
+.gallery-row--right .gallery-row__large {
+  order: 2;
+}
+
+.gallery-row--right .gallery-row__stack {
+  order: 1;
+}
+
+.gallery-row__large {
   overflow: hidden;
-  border-radius: 2px;
-  aspect-ratio: 4/3;
+  min-height: 300px;
   background: #111;
 }
 
-.masonry-item--large {
-  grid-column: span 2;
-  aspect-ratio: 16/9;
-}
-
-.masonry-image {
+.gallery-row__large img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -226,8 +225,121 @@
   transition: transform 0.5s ease;
 }
 
-.masonry-item:hover .masonry-image {
-  transform: scale(1.03);
+.gallery-row__large:hover img {
+  transform: scale(1.02);
+}
+
+.gallery-row__stack {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 4px;
+}
+
+.gallery-row__small {
+  overflow: hidden;
+  min-height: 150px;
+  background: #111;
+}
+
+.gallery-row__small img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.gallery-row__small:hover img {
+  transform: scale(1.02);
+}
+
+/* Full-width last row */
+.gallery-row--full {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.gallery-row__full-img {
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.gallery-row__full-img img {
+  width: 100%;
+  max-height: 100vh;
+  object-fit: contain;
+  display: block;
+  background: #000;
+}
+
+/* Half-width row (2 images side by side) */
+.gallery-row--half {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  margin-bottom: 4px;
+}
+
+.gallery-row__half-img {
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.gallery-row__half-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Make gallery items clickable */
+.gallery-row__large,
+.gallery-row__small {
+  cursor: pointer;
+}
+
+/* Lightbox */
+.lightbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.lightbox-image {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  cursor: default;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10001;
+  transition: opacity 0.3s;
+}
+
+.lightbox-close:hover {
+  opacity: 0.7;
 }
 
 /* Project Navigation */
@@ -238,9 +350,9 @@
 }
 
 .project-navigation .nav-container {
-  max-width: 1400px;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 4rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -274,7 +386,7 @@
 }
 
 .nav-title {
-  font-family: 'PF Marlet Display', serif;
+  font-family: 'Optima', serif;
   font-size: 1.5rem;
   font-weight: 300;
 }
@@ -285,6 +397,7 @@
     grid-template-columns: 1fr;
     gap: 3rem;
     text-align: center;
+    padding: 0 2rem;
   }
   
   .project-main-title {
@@ -296,12 +409,16 @@
     gap: 4rem;
   }
   
-  .gallery-masonry {
-    grid-template-columns: repeat(2, 1fr);
+  .content-container {
+    padding: 0 2rem;
   }
   
-  .masonry-item--large {
-    grid-column: span 2;
+  .gallery-row {
+    grid-template-columns: 3fr 2fr;
+  }
+  
+  .gallery-row--right {
+    grid-template-columns: 2fr 3fr;
   }
 }
 
@@ -380,16 +497,28 @@
   }
   
   .gallery-container {
-    padding: 0 1rem;
+    padding: 0;
   }
   
-  .gallery-masonry {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.4rem;
+  .gallery-row {
+    grid-template-columns: 1fr;
   }
   
-  .masonry-item--large {
-    grid-column: span 2;
+  .gallery-row--right {
+    grid-template-columns: 1fr;
+  }
+  
+  .gallery-row--right .gallery-row__large {
+    order: unset;
+  }
+  
+  .gallery-row--right .gallery-row__stack {
+    order: unset;
+  }
+  
+  .gallery-row__stack {
+    grid-template-rows: auto;
+    grid-template-columns: 1fr 1fr;
   }
   
   .project-navigation .nav-container {
@@ -453,9 +582,12 @@
     padding: 2.5rem 0;
   }
   
-  .content-container,
-  .gallery-container {
+  .content-container {
     padding: 0 1rem;
+  }
+  
+  .gallery-container {
+    padding: 0;
   }
   
   .content-left {
@@ -478,17 +610,10 @@
     line-height: 1.8;
   }
   
-  .gallery-masonry {
+  .gallery-row__stack {
     grid-template-columns: 1fr;
-    gap: 0.4rem;
   }
-  
-  .masonry-item--large {
-    grid-column: span 1;
-    aspect-ratio: 4/3;
-  }
-  
-  .masonry-item {
+}
     aspect-ratio: 16/10;
   }
 }

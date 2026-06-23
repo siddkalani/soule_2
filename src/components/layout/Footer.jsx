@@ -16,24 +16,24 @@ const Footer = () => {
         
         <div className="footer-column">
           <p><strong>CONTACT</strong></p>
-          <p>+971 50 483 2566</p>
-          <p>+971 52 278 2308</p>
+          <p>+971504452108</p>
+          <p>+971502702108</p>
           <br />
           <p><strong>EMAIL</strong></p>
-          <p>info@soule.studio</p>
+          <p>Info@so-ule.com</p>
         </div>
         
         <div className="footer-column">
           <p><strong>ADDRESS</strong></p>
-          <p>Soule Studio LLC #7</p>
-          <p>Denmark group, ground building</p>
-          <p>Al Quoz 3 - Dubai - UAE</p>
+          <ul className="address-list">
+            <li>Soule Studio LLC FZ, Alquoz 3 - Dubai - UAE</li>
+            <li>Soule Studio 99, Andheri East, Mumbai - India</li>
+          </ul>
         </div>
         
         <div className="footer-column">
           <p><strong>CAREERS</strong></p>
-          <p>Email us at</p>
-          <p>careers@soule.studio</p>
+          <p>careers@so-ule.com</p>
         </div>
       </div>
       

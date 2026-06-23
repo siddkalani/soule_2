@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { projectsData } from '../data/content';
 import ContactForm from '../components/sections/ContactForm';
@@ -8,6 +9,7 @@ import './ProjectDetail.css';
 const ProjectDetail = () => {
   const { id } = useParams();
   const project = projectsData.find(p => p.id === parseInt(id)) || projectsData[0];
+  const [lightboxImage, setLightboxImage] = useState(null);
   
   return (
     <div className="project-detail-page">
@@ -46,74 +48,75 @@ const ProjectDetail = () => {
         </div>
       </section>
       
-      {/* Project Details Content Section */}
-      <section className="project-content-section">
-        <div className="content-container">
-          <div className="content-grid">
-            {/* Left Column - Challenge & Solution */}
-            <div className="content-left">
-              <div className="detail-block">
-                <h3 className="detail-title">CHALLENGE:</h3>
-                <p className="detail-text">{project.challenge}</p>
-              </div>
-              
-              <div className="detail-block">
-                <h3 className="detail-title">SOLUTION:</h3>
-                <p className="detail-text">{project.solution}</p>
-              </div>
-            </div>
-            
-            {/* Right Column - Technologies */}
-            <div className="content-right">
-              <div className="detail-block">
-                <h3 className="detail-title">TECHNOLOGIES/MATERIALS USED:</h3>
-                <ul className="technologies-list">
-                  {project.technologies.map((tech, index) => (
-                    <li key={index} className="tech-item">{tech}</li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      
-      {/* Project Gallery Section */}
+      {/* Project Gallery - PDF Grid Layout */}
       <section className="project-gallery-section">
         <div className="gallery-container">
-          <div className="gallery-grid">
-            {project.images.slice(1, 5).map((image, index) => (
-              <div key={index} className={`gallery-item ${index === 0 ? 'gallery-item--wide' : ''}`}>
-                <img 
-                  src={image} 
-                  alt={`${project.title} view ${index + 1}`} 
-                  className="gallery-image"
-                  loading="lazy"
-                />
+          {/* Group images into rows of 3: 1 large + 2 stacked */}
+          {Array.from({ length: Math.ceil((project.images.length - 1) / 3) }, (_, rowIdx) => {
+            const startIdx = 1 + rowIdx * 3;
+            const rowImages = project.images.slice(startIdx, startIdx + 3);
+            const isEvenRow = rowIdx % 2 === 0;
+            const isLastRow = startIdx + 3 >= project.images.length;
+            const isIncompleteRow = rowImages.length < 3;
+            
+            // If last row has only 1 image, make it full width
+            if (isIncompleteRow && rowImages.length === 1) {
+              return (
+                <div key={rowIdx} className="gallery-row gallery-row--full">
+                  <div className="gallery-row__full-img" onClick={() => setLightboxImage(rowImages[0])}>
+                    <img src={rowImages[0]} alt={`${project.title} ${startIdx}`} loading="lazy" />
+                  </div>
+                </div>
+              );
+            }
+            
+            // If last row has 2 images, show side by side
+            if (isIncompleteRow && rowImages.length === 2) {
+              return (
+                <div key={rowIdx} className="gallery-row gallery-row--half">
+                  <div className="gallery-row__half-img" onClick={() => setLightboxImage(rowImages[0])}>
+                    <img src={rowImages[0]} alt={`${project.title} ${startIdx}`} loading="lazy" />
+                  </div>
+                  <div className="gallery-row__half-img" onClick={() => setLightboxImage(rowImages[1])}>
+                    <img src={rowImages[1]} alt={`${project.title} ${startIdx + 1}`} loading="lazy" />
+                  </div>
+                </div>
+              );
+            }
+            
+            return (
+              <div key={rowIdx} className={`gallery-row ${isEvenRow ? 'gallery-row--left' : 'gallery-row--right'}`}>
+                {rowImages[0] && (
+                  <div className="gallery-row__large" onClick={() => setLightboxImage(rowImages[0])}>
+                    <img src={rowImages[0]} alt={`${project.title} ${startIdx}`} loading="lazy" />
+                  </div>
+                )}
+                {rowImages.length > 1 && (
+                  <div className="gallery-row__stack">
+                    {rowImages[1] && (
+                      <div className="gallery-row__small" onClick={() => setLightboxImage(rowImages[1])}>
+                        <img src={rowImages[1]} alt={`${project.title} ${startIdx + 1}`} loading="lazy" />
+                      </div>
+                    )}
+                    {rowImages[2] && (
+                      <div className="gallery-row__small" onClick={() => setLightboxImage(rowImages[2])}>
+                        <img src={rowImages[2]} alt={`${project.title} ${startIdx + 2}`} loading="lazy" />
+                      </div>
+                    )}
+                  </div>
+                )}
               </div>
-            ))}
-          </div>
+            );
+          })}
         </div>
       </section>
       
-      {/* Additional Gallery if more images exist */}
-      {project.images.length > 5 && (
-        <section className="extended-gallery-section">
-          <div className="gallery-container">
-            <div className="extended-gallery-grid">
-              {project.images.slice(5).map((image, index) => (
-                <div key={index} className={`extended-gallery-item ${index % 5 === 0 ? 'extended-gallery-item--featured' : ''}`}>
-                  <img 
-                    src={image} 
-                    alt={`${project.title} detail ${index + 1}`} 
-                    className="extended-gallery-image"
-                    loading="lazy"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+      {/* Lightbox */}
+      {lightboxImage && (
+        <div className="lightbox-overlay" onClick={() => setLightboxImage(null)}>
+          <button className="lightbox-close" onClick={() => setLightboxImage(null)}>✕</button>
+          <img src={lightboxImage} alt="Zoomed view" className="lightbox-image" onClick={(e) => e.stopPropagation()} />
+        </div>
       )}
       
       <Communities />

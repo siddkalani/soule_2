@@ -50,9 +50,9 @@
 
 
 .nav-container {
-  max-width: 1600px;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 0 6rem;
+  padding: 0 3rem;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -81,9 +81,7 @@
   width: auto;
   object-fit: contain;
   transition: all 0.3s ease;
-  /* Prevent browser zoom from affecting logo */
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
+  image-rendering: auto;
 }
 
 /* Dark theme for light backgrounds */

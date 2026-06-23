@@ -14,10 +14,8 @@ const Navbar = () => {
   );
 
   useEffect(() => {
-    // Set initial navbar to light mode for project detail pages only
-    const currentPath = location.pathname;
-    const shouldStartLight = currentPath.includes('/project/');
-    setIsDarkTheme(shouldStartLight);
+    // Reset dark theme on route change - scroll handler will set correct state
+    setIsDarkTheme(false);
   }, [location]);
 
   useEffect(() => {
@@ -54,12 +52,8 @@ const Navbar = () => {
 
     window.addEventListener('scroll', throttledScroll, { passive: true });
     
-    // Only check initial scroll state if not on about or project detail pages
-    // (those pages set their own initial state)
-    const currentPath = location.pathname;
-    if (!currentPath.includes('/project/') && !currentPath.includes('/about')) {
-      handleScroll();
-    }
+    // Always check initial scroll state
+    handleScroll();
     
     return () => window.removeEventListener('scroll', throttledScroll);
   }, [location]);

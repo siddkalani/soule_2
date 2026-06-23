@@ -134,7 +134,7 @@ const Home = () => {
         />
       </section>
       
-      {/* Project Showcase - Villa 668 */}
+      {/* Project Showcase - Summer House */}
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -144,13 +144,13 @@ const Home = () => {
         <ProjectShowcase 
           title={projectsData[0].title}
           description={projectsData[0].description}
-          image={IMAGES.p668_bedroom}
+          image={projectsData[0].images[0]}
           dark={true}
           link="/project/1"
         />
       </motion.div>
       
-      {/* Project Showcase - Villa 162 */}
+      {/* Project Showcase - The Ultima */}
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -160,14 +160,14 @@ const Home = () => {
         <ProjectShowcase 
           title={projectsData[1].title}
           description={projectsData[1].description}
-          image={IMAGES.p162_exterior1}
+          image={projectsData[1].images[0]}
           dark={true}
           reverse={true}
           link="/project/2"
         />
       </motion.div>
 
-      {/* Project Showcase - Villa 507 */}
+      {/* Project Showcase - Mansion 27 */}
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -177,7 +177,7 @@ const Home = () => {
         <ProjectShowcase 
           title={projectsData[2].title}
           description={projectsData[2].description}
-          image={IMAGES.p507_kitchen1}
+          image={projectsData[2].images[0]}
           dark={true}
           link="/project/3"
         />

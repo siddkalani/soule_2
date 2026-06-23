@@ -14,7 +14,7 @@
 }
 
 .portfolio-hero h1 {
-  font-family: 'PF Marlet Display';
+  font-family: 'Optima';
   font-size: 2.5rem;
   font-weight: 400;
   letter-spacing: -0.5px;
@@ -83,7 +83,7 @@
   aspect-ratio: 1;
   overflow: hidden;
   cursor: pointer;
-  border: 0.5px solid rgba(255, 255, 255, 0.1);
+  border: none;
   text-decoration: none;
   color: inherit;
   display: block;
@@ -109,7 +109,7 @@
   right: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-end;
   padding: 2rem 1.5rem;
   opacity: 0;
@@ -127,7 +127,7 @@
   font-size: 0.85rem;
   font-weight: 300;
   letter-spacing: 2px;
-  text-align: center;
+  text-align: left;
 }
 
 .portfolio-item-type {
@@ -135,7 +135,7 @@
   font-size: 0.7rem;
   font-weight: 300;
   letter-spacing: 1px;
-  text-align: center;
+  text-align: left;
   margin-top: 0.3rem;
 }
 
