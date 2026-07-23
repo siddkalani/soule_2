@@ -41,10 +41,23 @@
   z-index: 0;
 }
 
+/* When project.flip includes 0, mirror the hero image horizontally.
+   The overlay content (title, spec grid) is unaffected because it sits
+   in .hero-overlay, not inside .hero-background. */
+.hero-background--flipped .flashlight-image-base,
+.hero-background--flipped .hero-bg-image {
+  transform: scaleX(-1);
+}
+
+/* Show the upper portion of the hero image (architectural subjects live
+   in the top ~2/3 of the frame). Without this, tall renders lose their
+   roofline/skyline behind the title overlay. */
+.hero-background .flashlight-image-base,
 .hero-bg-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 25%;
   display: block;
 }
 
@@ -179,7 +192,7 @@
   font-weight: bold;
 }
 
-/* Project Gallery Section */
+/* Project Gallery Section - PDF-style seamless grid */
 .project-gallery-section {
   padding: 0;
   background: #000;
@@ -189,14 +202,23 @@
   max-width: 100%;
   margin: 0 auto;
   padding: 0;
+  display: block;
 }
 
-/* Gallery Row - 1 large + 2 stacked */
+/* Gallery Row - 1 large + 2 stacked.
+   Fixed 100vh tall so 3 images fill one viewport height (matches PDF).
+   On typical 16:9 displays each cell is ~6:5 (near-square) which is what the
+   PDF pages use. Seamless: no gaps, no background borders. */
 .gallery-row {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  gap: 4px;
-  margin-bottom: 4px;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  /* Safety: keep the row PDF-like aspect on ultra-wide/short screens */
+  max-height: calc(100vw * 9 / 16);
 }
 
 .gallery-row--right {
@@ -213,14 +235,16 @@
 
 .gallery-row__large {
   overflow: hidden;
-  min-height: 300px;
-  background: #111;
+  background: transparent;
+  cursor: pointer;
 }
 
 .gallery-row__large img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  /* Landscape shots crop fine at center; portrait shots keep the subject */
+  object-position: center 30%;
   display: block;
   transition: transform 0.5s ease;
 }
@@ -232,19 +256,25 @@
 .gallery-row__stack {
   display: grid;
   grid-template-rows: 1fr 1fr;
-  gap: 4px;
+  gap: 0;
+  height: 100%;
+  min-height: 0;
 }
 
 .gallery-row__small {
   overflow: hidden;
-  min-height: 150px;
-  background: #111;
+  background: transparent;
+  cursor: pointer;
+  min-height: 0;
 }
 
 .gallery-row__small img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  /* Small cells are near-square (~6:5). For portrait sources, biasing to the
+     upper third keeps the subject in view instead of wasted ceiling/floor. */
+  object-position: center 30%;
   display: block;
   transition: transform 0.5s ease;
 }
@@ -253,31 +283,43 @@
   transform: scale(1.02);
 }
 
-/* Full-width last row */
+/* Full-width row (hero-style single image, or short last row).
+   Fills the same 100vh slot with object-fit: cover for a seamless look. */
 .gallery-row--full {
   display: block;
-  margin-bottom: 4px;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  max-height: calc(100vw * 9 / 16);
 }
 
 .gallery-row__full-img {
   overflow: hidden;
   cursor: pointer;
+  width: 100%;
+  height: 100%;
 }
 
 .gallery-row__full-img img {
   width: 100%;
-  max-height: 100vh;
-  object-fit: contain;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
   display: block;
-  background: #000;
 }
 
-/* Half-width row (2 images side by side) */
+/* Half-width row (2 images side by side).
+   Half the height of a normal row so cells stay square-ish. */
 .gallery-row--half {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4px;
-  margin-bottom: 4px;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  max-height: calc(100vw * 9 / 16);
 }
 
 .gallery-row__half-img {
@@ -289,13 +331,8 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 30%;
   display: block;
-}
-
-/* Make gallery items clickable */
-.gallery-row__large,
-.gallery-row__small {
-  cursor: pointer;
 }
 
 /* Lightbox */
@@ -311,6 +348,8 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .lightbox-image {
@@ -322,24 +361,98 @@
 
 .lightbox-close {
   position: absolute;
-  top: 2rem;
-  right: 2rem;
-  background: none;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: rgba(0, 0, 0, 0.5);
   border: none;
   color: white;
-  font-size: 2rem;
+  font-size: 1.6rem;
   cursor: pointer;
   width: 48px;
   height: 48px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 10001;
-  transition: opacity 0.3s;
+  transition: background 0.2s ease, opacity 0.3s ease;
 }
 
 .lightbox-close:hover {
-  opacity: 0.7;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Prev / Next arrow buttons for lightbox navigation */
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10001;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.lightbox-nav:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.lightbox-nav:active {
+  transform: translateY(-50%) scale(0.94);
+}
+
+.lightbox-nav--prev {
+  left: 1.5rem;
+}
+
+.lightbox-nav--next {
+  right: 1.5rem;
+}
+
+.lightbox-counter {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.4rem 1rem;
+  background: rgba(0, 0, 0, 0.55);
+  color: rgba(255, 255, 255, 0.9);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  z-index: 10001;
+  cursor: default;
+}
+
+@media (max-width: 640px) {
+  .lightbox-nav {
+    width: 44px;
+    height: 44px;
+  }
+
+  .lightbox-nav--prev { left: 0.75rem; }
+  .lightbox-nav--next { right: 0.75rem; }
+
+  .lightbox-close {
+    top: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+    font-size: 1.3rem;
+  }
+
+  .lightbox-counter {
+    bottom: 1rem;
+    font-size: 0.75rem;
+  }
 }
 
 /* Project Navigation */
@@ -499,28 +612,46 @@
   .gallery-container {
     padding: 0;
   }
-  
-  .gallery-row {
-    grid-template-columns: 1fr;
-  }
-  
+
+  /* Mobile: stack the row vertically. Each cell keeps a near-square aspect
+     (matches the PDF cell proportions) so images don't look stretched. */
+  .gallery-row,
   .gallery-row--right {
     grid-template-columns: 1fr;
+    height: auto;
+    max-height: none;
+    aspect-ratio: auto;
   }
-  
+
   .gallery-row--right .gallery-row__large {
     order: unset;
   }
-  
+
   .gallery-row--right .gallery-row__stack {
     order: unset;
   }
-  
+
+  .gallery-row__large,
+  .gallery-row__small,
+  .gallery-row__half-img,
+  .gallery-row__full-img {
+    aspect-ratio: 6 / 5;
+    height: auto;
+  }
+
   .gallery-row__stack {
     grid-template-rows: auto;
     grid-template-columns: 1fr 1fr;
+    height: auto;
   }
-  
+
+  .gallery-row--full,
+  .gallery-row--half {
+    height: auto;
+    max-height: none;
+    aspect-ratio: auto;
+  }
+
   .project-navigation .nav-container {
     padding: 0 1.5rem;
     flex-direction: column;
@@ -613,7 +744,11 @@
   .gallery-row__stack {
     grid-template-columns: 1fr;
   }
-}
-    aspect-ratio: 16/10;
+
+  .gallery-row__large,
+  .gallery-row__small,
+  .gallery-row__half-img,
+  .gallery-row__full-img {
+    aspect-ratio: 6 / 5;
   }
 }
