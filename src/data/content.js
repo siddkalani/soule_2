@@ -4,9 +4,9 @@ export const projectsData = [
   {
     id: 1,
     title: 'Summer House',
-    location: 'Dubai, UAE',
-    type: 'Residential Villa',
-    description: `A serene lakeside villa designed for family living, where architecture meets nature. Open layouts, natural light, and premium finishes create a timeless retreat.`,
+    location: 'Emerald Hills',
+    type: 'Luxury Residential Villa',
+    area: '1200 SqMts',
     category: 'residential',
     featured: true,
     // Ordered to match Website Project Grid PDF pages 2-6:
@@ -29,14 +29,18 @@ export const projectsData = [
       '/assets/images/projects/01_summer-house/13.webp',  // large R: TV living
       '/assets/images/projects/01_summer-house/11.webp',  // top L:  skylight hallway
       '/assets/images/projects/01_summer-house/9.webp',   // bot L:  foyer
+      // Row 5 (--left): large + stack right  (PDF page 7)
+      '/assets/images/projects/01_summer-house/14.webp',  // large L: living area view 01
+      '/assets/images/projects/01_summer-house/15.webp',  // top R:  living area view 03
+      '/assets/images/projects/01_summer-house/16.webp',  // bot R:  living area view 05
     ]
   },
   {
     id: 2,
     title: 'The Ultima',
-    location: 'Dubai, UAE',
-    type: 'Architecture, Landscape & Interiors',
-    description: `An ultra-luxury residence combining bold architectural expression with refined interiors. From grand kitchens to intimate bedrooms, every detail speaks of craftsmanship.`,
+    location: 'MBR District One Mansions',
+    type: 'Luxury Residential Villa',
+    area: '3500 SqMts',
     category: 'residential',
     featured: true,
     // Ordered to match Website Project Grid PDF pages 9-14, one row per PDF page.
@@ -54,7 +58,7 @@ export const projectsData = [
       // Row 2 --left  (page 12): dining + corridor
       '/assets/images/projects/02_The-Ultima/Interiors/U_8.webp',                // large L: wide dining w/ chandelier
       '/assets/images/projects/02_The-Ultima/Interiors/U_9.webp',                // top R:   round dining table
-      '/assets/images/projects/02_The-Ultima/Interiors/U_10.webp',               // bot R:   corridor to garden
+      '/assets/images/projects/02_The-Ultima/Interiors/GF_View_03.webp',         // bot R:   GF view
       // Row 3 --right (page 13): dramatic staircase (large) + corridor & bonsai reprised
       '/assets/images/projects/02_The-Ultima/Interiors/U_11.webp',               // large R: floating staircase w/ art wall
       '/assets/images/projects/02_The-Ultima/Interiors/U_10.webp',               // top L:   corridor (reprise of row 2 bot R)
@@ -68,9 +72,9 @@ export const projectsData = [
   {
     id: 3,
     title: 'Mansion 27',
-    location: 'Dubai, UAE',
-    type: 'Residential — Interior Design',
-    description: `A contemporary mansion showcasing bespoke interior design across bedrooms and private offices. Rich materials and dramatic lighting define each space.`,
+    location: 'MBR District One Mansions',
+    type: 'Luxury Residential Villa',
+    area: '1800 SqMts',
     category: 'residential',
     featured: true,
     // Ordered to match Website Project Grid PDF pages 16-21.
@@ -82,15 +86,8 @@ export const projectsData = [
       12: 'center bottom', // KALPESH 4 (1) tall portrait — anchor to coffee-table/sofa subject
       15: 'center top',    // OFFICE 2 shelving detail portrait (zoomed out via fit: contain)
     },
-    // Slide 4 large-R (curved sofa) kept as contain so the whole frame shows;
-    // the two left images (top-L KALPESH 6 square bookshelf, bot-L KALPESH 4(1)
-    // portrait) now use default cover with tuned object-position so they fill
-    // the grid cell like the other rows.
-    // Slide 5 top-R (OFFICE 2 shelving) set to contain so it zooms out and
-    // shows a wider portion of the portrait shelving detail.
+    // All images use object-fit: cover to completely fill grid cells (no black borders).
     fit: {
-      10: 'contain',   // KALPESH 5 curved sofa (large R)
-      15: 'contain',   // OFFICE 2 shelving (top R) — zoom out
     },
     images: [
       '/assets/images/projects/03_Mansion-27/Architecture%20Landscape%20/3%202.webp',   // hero (page 16): swapped in from slide-1 top-R
@@ -119,9 +116,9 @@ export const projectsData = [
   {
     id: 4,
     title: 'The Desert Bloom',
-    location: 'Dubai, UAE',
-    type: 'Residential Villa',
-    description: `A desert-inspired villa where exterior architecture blooms into thoughtfully designed interiors \u2014 from kids\u2019 rooms to powder rooms, each space tells its own story.`,
+    location: 'Emirates Hills',
+    type: 'Luxury Residential Villa',
+    area: '1800 SqMts',
     category: 'residential',
     featured: true,
     // Ordered to match Website Project Grid PDF pages 23-28, plus feedback fixes:
@@ -158,10 +155,10 @@ export const projectsData = [
   },
   {
     id: 5,
-    title: '99 Priv\u00e9',
-    location: 'Mumbai, India',
-    type: 'Architecture & Interiors',
-    description: `A private residence merging formal dining elegance with festive warmth. Architecture and interiors come together in a celebration of refined living.`,
+    title: '99 Prive',
+    location: 'Emerald Hills',
+    type: 'Luxury Residential Villa',
+    area: '1800 SqMts',
     category: 'residential',
     featured: true,
     // Ordered to match Website Project Grid PDF pages 30-35, plus feedback fixes:
@@ -179,11 +176,11 @@ export const projectsData = [
       // Slide 2 --right (page 32 christmas main)
       '/assets/images/projects/05_99-Prive/Christmas/20%20-%20Living%20Area%20Xmas_View%2004.webp',    // large R: big Christmas tree
       '/assets/images/projects/05_99-Prive/Christmas/20%20-%20Living%20Area%20Xmas_View%2002.webp',    // top L:   stairs w/ garland
-      '/assets/images/projects/05_99-Prive/Christmas/20%20-%20Living%20Area%20Xmas_View%2003.webp',    // bot L:   tree w/ plants
+      '/assets/images/projects/05_99-Prive/Christmas/20%20-%20Living%20Area%20Xmas_View%2007.webp',    // bot L:   living area xmas view 07
       // Slide 3 --right (page 33 dining/bar alt — 3-image grid per PDF)
-      '/assets/images/projects/05_99-Prive/Christmas/20%20-%20Living%20Area%20Xmas_View%2012.webp',    // large R: dining table w/ flower chandelier
-      '/assets/images/projects/05_99-Prive/Christmas/20%20-%20Living%20Area%20Xmas_View%2002.webp',    // top L:   stairs (reprise — also appears on page 33)
-      '/assets/images/projects/05_99-Prive/Christmas/20%20-%20Living%20Area%20Xmas_View%2011.webp',    // bot L:   bar w/ chandelier
+      '/assets/images/projects/05_99-Prive/Christmas/20%20-%20Living%20Area%20Xmas_View%2011.webp',    // large R: bar w/ chandelier (swapped from bot L)
+      '/assets/images/projects/05_99-Prive/Christmas/20%20-%20Living%20Area%20Xmas_View%2003.webp',    // top L:   tree w/ plants (moved from slide 2 bot L)
+      '/assets/images/projects/05_99-Prive/Christmas/20%20-%20Living%20Area%20Xmas_View%2012.webp',    // bot L:   dining table w/ flower chandelier (swapped from large R)
       // Slide 4 --half (page 34 powder room — 2 side by side)
       '/assets/images/projects/05_99-Prive/Interior%20/1%20(1).webp',                                    // left:  powder round mirror + lamps
       '/assets/images/projects/05_99-Prive/Interior%20/2%20(1).webp',                                    // right: powder round mirror alt
@@ -196,9 +193,9 @@ export const projectsData = [
   {
     id: 6,
     title: 'The Edge',
-    location: 'Dubai, UAE',
-    type: 'Residential — Interior Design',
-    description: `A cutting-edge residential interior featuring dramatic living spaces, custom staircases, and luxurious bedrooms with walk-in wardrobes.`,
+    location: 'Sobha Hartland',
+    type: 'Luxury Residential Villa',
+    area: '1000 SqMts',
     category: 'residential',
     featured: true,
     // Ordered to match Website Project Grid PDF pages 37-42, plus feedback fixes:
@@ -215,7 +212,10 @@ export const projectsData = [
     //      the two pink/peach bedroom renders shown in the PDF are NOT in the
     //      06_The-Edge/ folder, so the current half slide reuses WALK IN 3 +
     //      GUEST BEDROOM VIEW 5 until user provides the missing images.
-    layouts: ['left', 'right', 'right', 'left', 'half'],
+    layouts: ['left', 'right', 'right', 'left', 'left'],
+    focus: {
+      6: 'center bottom',  // 2-GF FOYER VIEW 2 — portrait image, show bottom portion
+    },
     images: [
       '/assets/images/projects/06_The-Edge/13-GG%20LIVING%20ROOM%20VIEW%205.webp',       // hero (page 37): overhead U-sofa
       // Slide 1 --left (page 38 interior overview) — clockwise-rotated per feedback: [LL,TR,BR] -> [BR,LL,TR]
@@ -225,7 +225,7 @@ export const projectsData = [
       // Slide 2 --right (page 39 lobby / staircase)
       '/assets/images/projects/06_The-Edge/8-GF%20LIFT.webp',                             // large R: lift / modern hallway (was top L)
       '/assets/images/projects/06_The-Edge/6-GF%20STAIRCASE%20VIEW%201.webp',             // top L:   staircase corner (was large R)
-      '/assets/images/projects/06_The-Edge/GUEST%201%20WALK%20IN%201.webp',               // bot L:   walk-in transition
+      '/assets/images/projects/06_The-Edge/2-GF%20FOYER%20VIEW%202.webp',                 // bot L:   foyer view
       // Slide 3 --right (page 40 guest bedroom)
       '/assets/images/projects/06_The-Edge/GUEST%20BEDROOM%201-VIEW%201.webp',            // large R: bedroom main (two beds)
       '/assets/images/projects/06_The-Edge/GUEST%20BEDROOM%201-VIEW%203.webp',            // top L:   bedside detail
@@ -234,19 +234,17 @@ export const projectsData = [
       '/assets/images/projects/06_The-Edge/GUEST%201%20WALK%20IN%203.webp',               // large L: walk-in w/ mirror & vanity
       '/assets/images/projects/06_The-Edge/GUEST%201%20WALK%20IN%201.webp',               // top R:   walk-in alt angle (reused — appears twice in PDF)
       '/assets/images/projects/06_The-Edge/GUEST%20BEDROOM%201-VIEW%205.webp',            // bot R:   bedroom w/ two beds warm-tone
-      // Slide 5 --half  (page 42 pink-toned bedroom pair) — PLACEHOLDER
-      // The two pink/peach bedroom renders in the PDF are not in the folder;
-      // reusing WALK IN 3 + BEDROOM VIEW 5 until user provides new assets.
-      '/assets/images/projects/06_The-Edge/GUEST%201%20WALK%20IN%203.webp',               // left:  PLACEHOLDER (reuse walk-in)
-      '/assets/images/projects/06_The-Edge/GUEST%20BEDROOM%201-VIEW%205.webp',            // right: PLACEHOLDER (reuse bedroom warm-tone)
+      // Slide 5 --left (page 42 pink-toned bedroom)
+      '/assets/images/projects/06_The-Edge/GUEST%20BEDROOM%202%20VIEW%205.webp',          // large L: pink bedroom wide
+      '/assets/images/projects/06_The-Edge/GUEST%20BEDROOM%202%20VIEW%203.webp',          // top R:   pink bedroom alt
+      '/assets/images/projects/06_The-Edge/GUEST%20BEDROOM%202%20VIEW%202.webp',          // bot R:   pink bedroom detail
     ]
   },
   {
     id: 7,
     title: 'Axila by Homedge',
-    location: 'Dubai, UAE',
-    type: 'Commercial — Common Areas',
-    description: `A modern mixed-use development with premium amenities. From the striking reception to the wellness spa and fitness center, every common space is designed to inspire.`,
+    location: 'Jumeirah Garden City',
+    type: 'Residential G+2P+8',
     category: 'commercial',
     featured: true,
     // Ordered to match Website Project Grid PDF pages 44-49.
@@ -287,9 +285,8 @@ export const projectsData = [
   {
     id: 8,
     title: 'The Key by Homedge',
-    location: 'Dubai, UAE',
-    type: 'Commercial — Common Areas',
-    description: `A premium commercial development featuring sophisticated common areas. Reception, gym, spa, and corridors create a cohesive luxury experience.`,
+    location: 'Jumeirah Garden City',
+    type: 'Residential G+2P+8',
     category: 'commercial',
     featured: true,
     // Ordered to match Website Project Grid PDF pages 51-56.
@@ -321,9 +318,10 @@ export const projectsData = [
   {
     id: 9,
     title: 'Secret Garden',
-    location: 'Dubai, UAE',
-    type: 'Landscape Design',
-    description: `A hidden oasis of landscape architecture \u2014 where greenery, water features, and outdoor living merge into a private paradise.`,
+    location: 'Dubai Hills, Hills Grove',
+    type: 'Luxury Residential Villa',
+    area: '4000 SqMts',
+    comingSoon: true,
     category: 'landscape',
     featured: true,
     images: [

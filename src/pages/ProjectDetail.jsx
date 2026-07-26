@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import { projectsData } from '../data/content';
 import ContactForm from '../components/sections/ContactForm';
 import Communities from '../components/sections/Communities';
@@ -64,7 +64,11 @@ function buildRows(images, layouts) {
 
 const ProjectDetail = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const project = projectsData.find(p => p.id === parseInt(id)) || projectsData[0];
+  const currentIndex = projectsData.findIndex(p => p.id === parseInt(id));
+  const prevProject = currentIndex > 0 ? projectsData[currentIndex - 1] : null;
+  const nextProject = currentIndex < projectsData.length - 1 ? projectsData[currentIndex + 1] : null;
   const rows = buildRows(project.images, project.layouts);
 
   // Per-image object-position map (optional). Lets project data steer the crop
@@ -146,7 +150,6 @@ const ProjectDetail = () => {
           <div className="hero-content-wrapper">
             <div className="project-title-section">
               <h1 className="project-main-title">{project.title}</h1>
-              <p className="project-subtitle">{project.description}</p>
             </div>
 
             {/* Project Details Grid */}
@@ -159,14 +162,17 @@ const ProjectDetail = () => {
                 <span className="spec-label">PROJECT TYPE:</span>
                 <span className="spec-value">{project.type}</span>
               </div>
-              <div className="spec-row">
-                <span className="spec-label">COMPLETION YEAR:</span>
-                <span className="spec-value">{project.completionYear}</span>
-              </div>
-              <div className="spec-row">
-                <span className="spec-label">PLOT AREA:</span>
-                <span className="spec-value">{project.plotArea}</span>
-              </div>
+              {project.area && (
+                <div className="spec-row">
+                  <span className="spec-label">AREA:</span>
+                  <span className="spec-value">{project.area}</span>
+                </div>
+              )}
+              {project.comingSoon && (
+                <div className="spec-row">
+                  <span className="spec-value">Coming Soon</span>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -286,6 +292,35 @@ const ProjectDetail = () => {
           </div>
         </div>
       )}
+
+      {/* Project Navigation - Prev/Next */}
+      <section className="project-navigation">
+        <div className="project-nav-container">
+          {prevProject ? (
+            <Link to={`/project/${prevProject.id}`} className="project-nav-link project-nav-prev">
+              <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+                <path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              <div className="project-nav-text">
+                <span className="project-nav-label">Previous Project</span>
+                <span className="project-nav-title">{prevProject.title}</span>
+              </div>
+            </Link>
+          ) : <div className="project-nav-spacer" />}
+
+          {nextProject ? (
+            <Link to={`/project/${nextProject.id}`} className="project-nav-link project-nav-next">
+              <div className="project-nav-text">
+                <span className="project-nav-label">Next Project</span>
+                <span className="project-nav-title">{nextProject.title}</span>
+              </div>
+              <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+                <path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </Link>
+          ) : <div className="project-nav-spacer" />}
+        </div>
+      </section>
 
       <Communities />
 

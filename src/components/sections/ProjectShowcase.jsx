@@ -18,7 +18,7 @@ const ProjectShowcase = ({
       
       <div className="project-info">
         <h2>{title}</h2>
-        <p>{description}</p>
+        {description && <p>{description}</p>}
         {link && <Button variant={dark ? 'primary' : 'dark'} to={link}>READ MORE</Button>}
       </div>
     </section>
