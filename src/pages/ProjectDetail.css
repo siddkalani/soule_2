@@ -626,36 +626,20 @@
     padding: 0;
   }
 
-  /* Mobile: stack the row vertically. Each cell keeps a near-square aspect
-     (matches the PDF cell proportions) so images don't look stretched. */
+  /* Mobile: keep the same grid shape as desktop (large + 2 stacked side by
+     side), just shorter rows so the whole gallery still fits comfortably. */
   .gallery-row,
   .gallery-row--right {
-    grid-template-columns: 1fr;
     height: auto;
     max-height: none;
-    aspect-ratio: auto;
-  }
-
-  .gallery-row--right .gallery-row__large {
-    order: unset;
-  }
-
-  .gallery-row--right .gallery-row__stack {
-    order: unset;
+    aspect-ratio: 4 / 5;
   }
 
   .gallery-row__large,
   .gallery-row__small,
   .gallery-row__half-img,
   .gallery-row__full-img {
-    aspect-ratio: 6 / 5;
-    height: auto;
-  }
-
-  .gallery-row__stack {
-    grid-template-rows: auto;
-    grid-template-columns: 1fr 1fr;
-    height: auto;
+    height: 100%;
   }
 
   .gallery-row--full,
@@ -752,16 +736,5 @@
   .tech-item {
     font-size: 0.85rem;
     line-height: 1.8;
-  }
-  
-  .gallery-row__stack {
-    grid-template-columns: 1fr;
-  }
-
-  .gallery-row__large,
-  .gallery-row__small,
-  .gallery-row__half-img,
-  .gallery-row__full-img {
-    aspect-ratio: 6 / 5;
   }
 }

@@ -61,7 +61,7 @@ export const projectsData = [
       '/assets/images/projects/02_The-Ultima/Interiors/GF_View_03.webp',         // bot R:   GF view
       // Row 3 --right (page 13): dramatic staircase (large) + corridor & bonsai reprised
       '/assets/images/projects/02_The-Ultima/Interiors/U_11.webp',               // large R: floating staircase w/ art wall
-      '/assets/images/projects/02_The-Ultima/Interiors/U_10.webp',               // top L:   corridor (reprise of row 2 bot R)
+      '/assets/images/projects/02_The-Ultima/Interiors/GF_View_03.webp',         // top L:   corridor (reprise of row 2 bot R)
       '/assets/images/projects/02_The-Ultima/Interiors/U_6.webp',                // bot L:   bonsai display (reprise of row 1 bot L)
       // Row 4 --left  (page 14): kitchen suite
       '/assets/images/projects/02_The-Ultima/Interiors/KITCHEN%201.webp',        // large L: kitchen w/ marble range hood
@@ -78,7 +78,7 @@ export const projectsData = [
     category: 'residential',
     featured: true,
     // Ordered to match Website Project Grid PDF pages 16-21.
-    // Hero swapped with slide-1 top-R per feedback (was '4 2', now '3 2').
+    // Hero is slide-1 top-R ('4 2') per feedback; '3 2' moved into that slot.
     layouts: ['left', 'right', 'left', 'right', 'left'],
     // Bias portrait/bookshelf shots to their subject so the meaningful content
     // fills the near-square grid cell.
@@ -90,10 +90,10 @@ export const projectsData = [
     fit: {
     },
     images: [
-      '/assets/images/projects/03_Mansion-27/Architecture%20Landscape%20/3%202.webp',   // hero (page 16): swapped in from slide-1 top-R
+      '/assets/images/projects/03_Mansion-27/Architecture%20Landscape%20/4%202.webp',   // hero (page 16): slide-1 top-R image
       // Row 0 --left (page 17): architecture exteriors
       '/assets/images/projects/03_Mansion-27/Architecture%20Landscape%20/2%202.webp',   // large L: wide house exterior day
-      '/assets/images/projects/03_Mansion-27/Architecture%20Landscape%20/4%202.webp',   // top R:   corridor / palms (swapped in from hero)
+      '/assets/images/projects/03_Mansion-27/Architecture%20Landscape%20/3%202.webp',   // top R:   swapped in from hero
       '/assets/images/projects/03_Mansion-27/Architecture%20Landscape%20/1%202.webp',   // bot R:   house compact view
       // Row 1 --right (page 18): master bedroom
       '/assets/images/projects/03_Mansion-27/Interior%20/KALPESH%202.webp',              // large R: master bedroom w/ art wall

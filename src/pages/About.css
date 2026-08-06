@@ -387,7 +387,7 @@
   
   .about-hero-content {
     max-width: 100%;
-    text-align: left;
+    text-align: center;
   }
   
   .about-text-content {
@@ -405,7 +405,7 @@
     font-size: 1rem;
     line-height: 1.75;
     margin-bottom: 1.5rem;
-    text-align: left;
+    text-align: center;
   }
   
   .team-grid {
@@ -424,7 +424,9 @@
     padding: 0 1.5rem;
   }
   
-  .core-values h2 {
+  .core-values h2,
+  .services-section h2 {
+    text-align: center;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
     font-size: 2.5rem;
@@ -437,6 +439,11 @@
   .value-item:nth-child(4),
   .value-item:nth-child(5) {
     grid-column: auto;
+  }
+
+  .value-item,
+  .service-item {
+    text-align: center;
   }
   
   .services-grid {
@@ -469,11 +476,11 @@
     padding: 110px 1rem 2.5rem;
     margin-top: 0;
     min-height: auto;
-    align-items: flex-start;
+    align-items: center;
   }
   
   .about-hero-content {
-    text-align: left;
+    text-align: center;
   }
   
   .about-text-content {
@@ -490,7 +497,7 @@
     font-size: 0.9rem;
     line-height: 1.65;
     margin-bottom: 1.2rem;
-    text-align: left;
+    text-align: center;
   }
   
   .team-section,
@@ -512,6 +519,7 @@
     grid-template-columns: 1fr;
     gap: 2rem;
     padding: 0 1rem;
+    text-align: center;
   }
   
   .divider {
@@ -524,12 +532,14 @@
   }
   
   .core-values h2 {
+    text-align: center;
     padding-left: 1rem;
     padding-right: 1rem;
     font-size: 2rem;
   }
   
   .services-section h2 {
+    text-align: center;
     padding-left: 1rem;
     padding-right: 1rem;
     font-size: 2rem;

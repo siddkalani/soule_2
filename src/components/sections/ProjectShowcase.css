@@ -105,8 +105,19 @@
 @media (max-width: 768px) {
   .project-info {
     padding: 3rem 2rem;
+    text-align: center;
+    align-items: center;
   }
-  
+
+  .project-showcase.reverse .project-info {
+    align-items: center;
+    text-align: center;
+  }
+
+  .project-showcase.reverse .project-info p {
+    margin-left: 0;
+  }
+
   .project-info h2 {
     font-size: 2rem;
   }

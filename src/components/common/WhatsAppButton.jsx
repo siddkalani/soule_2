@@ -3,7 +3,8 @@ import './WhatsAppButton.css';
 
 const WhatsAppButton = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const phoneNumber = '+971501234567'; // Replace with actual WhatsApp number
+  // wa.me requires digits only (no '+' or spaces)
+  const phoneNumber = '971502702108';
   const message = 'Hello! I would like to inquire about your design services.';
   
   const handleWhatsAppClick = () => {

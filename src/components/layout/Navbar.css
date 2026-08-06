@@ -502,7 +502,16 @@
   }
   
   .logo-image {
-    height: 90px;
+    height: 110px;
+  }
+
+  .hamburger {
+    width: 60px;
+    height: 60px;
+  }
+
+  .hamburger span {
+    width: 26px;
   }
 }
 
@@ -534,6 +543,15 @@
   }
   
   .logo-image {
-    height: 80px;
+    height: 95px;
+  }
+
+  .hamburger {
+    width: 54px;
+    height: 54px;
+  }
+
+  .hamburger span {
+    width: 24px;
   }
 }

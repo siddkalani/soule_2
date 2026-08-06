@@ -234,7 +234,8 @@
   .about-body {
     grid-template-columns: 1fr;
     gap: 2rem;
-    text-align: left;
+    text-align: center;
+    justify-items: center;
   }
   
   .about-text-columns {
@@ -244,6 +245,23 @@
   
   .about-text-columns p {
     font-size: 0.95rem;
+  }
+
+  .about-header {
+    text-align: center;
+  }
+
+  .about-header h2 {
+    display: block;
+  }
+
+  .about-header h2::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .about-button {
+    justify-content: center;
   }
   
   .three-cards-section {
