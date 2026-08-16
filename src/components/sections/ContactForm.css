@@ -211,7 +211,8 @@
   
   .contact-form button {
     grid-column: 1;
-    width: 100%;
+    width: auto;
+    justify-self: center;
   }
 }
 

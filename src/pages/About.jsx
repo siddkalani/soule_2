@@ -83,7 +83,7 @@ const About = () => {
       </section>
       
       {/* Services */}
-      <section className="services-section">
+      <section id="services" className="services-section">
         <h2>Services</h2>
         <div className="services-grid">
           {servicesData.map(service => (

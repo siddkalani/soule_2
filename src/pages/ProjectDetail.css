@@ -552,9 +552,9 @@
   .enhanced-project-hero {
     min-height: 60vh;
   }
-  
+
   .hero-overlay {
-    padding: 3rem 0 2rem;
+    padding: 3rem 0 0.5rem;
   }
   
   .hero-content-wrapper {
@@ -670,9 +670,9 @@
   .enhanced-project-hero {
     min-height: 50vh;
   }
-  
+
   .hero-overlay {
-    padding: 2.5rem 0 1.5rem;
+    padding: 2.5rem 0 0.5rem;
   }
   
   .hero-content-wrapper {
