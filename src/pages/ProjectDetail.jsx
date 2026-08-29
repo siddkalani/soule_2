@@ -270,6 +270,7 @@ const ProjectDetail = () => {
           </button>
 
           <img
+            key={lightboxIndex}
             src={project.images[lightboxIndex]}
             alt={`${project.title} ${lightboxIndex + 1}`}
             className="lightbox-image"
@@ -286,10 +287,6 @@ const ProjectDetail = () => {
               <path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </button>
-
-          <div className="lightbox-counter" onClick={(e) => e.stopPropagation()}>
-            {lightboxIndex + 1} / {project.images.length}
-          </div>
         </div>
       )}
 

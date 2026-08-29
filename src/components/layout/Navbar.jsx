@@ -186,10 +186,14 @@ const Navbar = () => {
       >
         <div className="nav-container">
           <Link to="/" className="logo">
-            <img 
-              src={isDarkTheme ? IMAGES.souleLogoNavbarLeftDark : IMAGES.souleLogoNavbarLeft} 
-              alt="Soule Studio" 
-              className="logo-image"
+            <img
+              src={
+                isMobileView
+                  ? (isDarkTheme ? IMAGES.souleLogoNavbarCenterDark : IMAGES.souleLogoNavbarCenter)
+                  : (isDarkTheme ? IMAGES.souleLogoNavbarLeftDark : IMAGES.souleLogoNavbarLeft)
+              }
+              alt="Soule Studio"
+              className={`logo-image${isMobileView ? ' logo-image--mobile' : ''}`}
             />
           </Link>
           

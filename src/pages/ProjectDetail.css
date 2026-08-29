@@ -353,10 +353,19 @@
 }
 
 .lightbox-image {
-  max-width: 90vw;
-  max-height: 90vh;
+  /* Fixed display height so every image sits with the same top/bottom
+     margins in the viewport. Width flexes with the image's aspect ratio. */
+  height: 85vh;
+  width: auto;
+  max-width: 92vw;
   object-fit: contain;
   cursor: default;
+  animation: lightboxImageFade 0.35s ease;
+}
+
+@keyframes lightboxImageFade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 .lightbox-close {
@@ -417,20 +426,6 @@
   right: 1.5rem;
 }
 
-.lightbox-counter {
-  position: absolute;
-  bottom: 1.5rem;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 0.4rem 1rem;
-  background: rgba(0, 0, 0, 0.55);
-  color: rgba(255, 255, 255, 0.9);
-  border-radius: 999px;
-  font-size: 0.85rem;
-  letter-spacing: 1px;
-  z-index: 10001;
-  cursor: default;
-}
 
 @media (max-width: 640px) {
   .lightbox-nav {
@@ -450,8 +445,7 @@
   }
 
   .lightbox-counter {
-    bottom: 1rem;
-    font-size: 0.75rem;
+    display: none;
   }
 }
 

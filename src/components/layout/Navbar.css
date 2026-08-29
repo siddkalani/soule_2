@@ -473,7 +473,7 @@
   }
   
   .logo {
-    left: 0.5rem;
+    left: 0;
     position: relative;
   }
   
@@ -497,6 +497,14 @@
   
   .logo-image {
     height: 110px;
+  }
+
+  /* Flower/center logo has transparent padding baked in — needs a large
+     nominal height so the visible mark dominates over the hamburger, and a
+     negative left margin so its visible edge aligns with the viewport padding. */
+  .logo-image--mobile {
+    height: 130px;
+    margin-left: -2.25rem;
   }
 
   .hamburger {
@@ -540,6 +548,11 @@
   
   .logo-image {
     height: 95px;
+  }
+
+  .logo-image--mobile {
+    height: 110px;
+    margin-left: -2.25rem;
   }
 
   .hamburger {
