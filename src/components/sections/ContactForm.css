@@ -1,6 +1,13 @@
 .contact-section {
   padding: 6rem 0;
   background: #f5f5f5;
+  /* Explicit text color so ancestors setting color: #fff (e.g. project-detail-page)
+     don't leak into this light-background section. */
+  color: #333;
+}
+
+.contact-right h3 {
+  color: #000;
 }
 
 .contact-container {
