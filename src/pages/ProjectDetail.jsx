@@ -4,7 +4,20 @@ import { projectsData } from '../data/content';
 import ContactForm from '../components/sections/ContactForm';
 import Communities from '../components/sections/Communities';
 import FlashlightImage from '../components/common/FlashlightImage';
+import ResponsiveImage from '../components/common/ResponsiveImage';
 import './ProjectDetail.css';
+
+/**
+ * `sizes` descriptors for the gallery slots. These must mirror the CSS grid
+ * (2fr 1fr on desktop, single column under 768px) — if they lie, the browser
+ * picks the wrong tier and either wastes bytes or serves something blurry.
+ */
+const SIZES = {
+  full: '100vw',
+  half: '(max-width: 768px) 100vw, 50vw',
+  large: '(max-width: 768px) 100vw, 66vw',
+  small: '(max-width: 768px) 100vw, 33vw',
+};
 
 /**
  * Row layout tokens used in project.layouts[]:
@@ -144,7 +157,14 @@ const ProjectDetail = () => {
         <div
           className={`hero-background${flipFor(0) ? ' hero-background--flipped' : ''}`}
         >
-          <FlashlightImage src={project.images[0]} alt={project.title} />
+          {/* This is the LCP element on every project page: load it eagerly at
+              high priority rather than letting it queue behind the gallery. */}
+          <FlashlightImage
+            src={project.images[0]}
+            alt={project.title}
+            sizes="100vw"
+            priority
+          />
         </div>
         <div className="hero-overlay">
           <div className="hero-content-wrapper">
@@ -190,7 +210,13 @@ const ProjectDetail = () => {
               return (
                 <div key={rowIdx} className="gallery-row gallery-row--full">
                   <div className="gallery-row__full-img" onClick={() => openAt(abs)}>
-                    <img src={images[0]} alt={`${project.title} ${abs}`} loading="lazy" style={style} />
+                    <ResponsiveImage
+                      src={images[0]}
+                      alt={`${project.title} ${abs}`}
+                      sizes={SIZES.full}
+                      priority={rowIdx === 0}
+                      style={style}
+                    />
                   </div>
                 </div>
               );
@@ -204,7 +230,13 @@ const ProjectDetail = () => {
                     const style = styleFor(abs);
                     return (
                       <div key={i} className="gallery-row__half-img" onClick={() => openAt(abs)}>
-                        <img src={src} alt={`${project.title} ${abs}`} loading="lazy" style={style} />
+                        <ResponsiveImage
+                          src={src}
+                          alt={`${project.title} ${abs}`}
+                          sizes={SIZES.half}
+                          priority={rowIdx === 0 && i === 0}
+                          style={style}
+                        />
                       </div>
                     );
                   })}
@@ -222,19 +254,35 @@ const ProjectDetail = () => {
               <div key={rowIdx} className={rowClass}>
                 {largeSrc && (
                   <div className="gallery-row__large" onClick={() => openAt(startIdx)}>
-                    <img src={largeSrc} alt={`${project.title} ${startIdx}`} loading="lazy" style={styleLarge} />
+                    <ResponsiveImage
+                      src={largeSrc}
+                      alt={`${project.title} ${startIdx}`}
+                      sizes={SIZES.large}
+                      priority={rowIdx === 0}
+                      style={styleLarge}
+                    />
                   </div>
                 )}
                 {(topSrc || botSrc) && (
                   <div className="gallery-row__stack">
                     {topSrc && (
                       <div className="gallery-row__small" onClick={() => openAt(startIdx + 1)}>
-                        <img src={topSrc} alt={`${project.title} ${startIdx + 1}`} loading="lazy" style={styleTop} />
+                        <ResponsiveImage
+                          src={topSrc}
+                          alt={`${project.title} ${startIdx + 1}`}
+                          sizes={SIZES.small}
+                          style={styleTop}
+                        />
                       </div>
                     )}
                     {botSrc && (
                       <div className="gallery-row__small" onClick={() => openAt(startIdx + 2)}>
-                        <img src={botSrc} alt={`${project.title} ${startIdx + 2}`} loading="lazy" style={styleBot} />
+                        <ResponsiveImage
+                          src={botSrc}
+                          alt={`${project.title} ${startIdx + 2}`}
+                          sizes={SIZES.small}
+                          style={styleBot}
+                        />
                       </div>
                     )}
                   </div>
@@ -269,10 +317,14 @@ const ProjectDetail = () => {
             </svg>
           </button>
 
-          <img
+          {/* The lightbox is the one place a full-resolution tier is justified,
+              so it opts out of lazy loading and offers the top width. */}
+          <ResponsiveImage
             key={lightboxIndex}
             src={project.images[lightboxIndex]}
             alt={`${project.title} ${lightboxIndex + 1}`}
+            sizes="100vw"
+            priority
             className="lightbox-image"
             onClick={(e) => e.stopPropagation()}
             style={flipFor(lightboxIndex) ? { transform: 'scaleX(-1)' } : undefined}

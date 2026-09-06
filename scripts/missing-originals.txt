@@ -1,0 +1,71 @@
+# Images with no matching original found.
+# These were re-encoded from the existing .webp, so the largest tier
+# inherits its quality. Drop the true originals into ORIGINALS_DIR
+# using the SAME base filename, then re-run with --force.
+
+/assets/images/211f3c95044295.5fb63d2d2e82c.webp
+/assets/images/GUEST WALK IN 2.webp
+/assets/images/KALPESH 6.webp
+/assets/images/about-hero.webp
+/assets/images/original.webp
+/assets/images/projects/01_summer-house/1.webp
+/assets/images/projects/01_summer-house/10.webp
+/assets/images/projects/01_summer-house/11.webp
+/assets/images/projects/01_summer-house/12.webp
+/assets/images/projects/01_summer-house/13.webp
+/assets/images/projects/01_summer-house/14.webp
+/assets/images/projects/01_summer-house/15.webp
+/assets/images/projects/01_summer-house/16.webp
+/assets/images/projects/01_summer-house/2.webp
+/assets/images/projects/01_summer-house/5.webp
+/assets/images/projects/01_summer-house/6.webp
+/assets/images/projects/01_summer-house/7.webp
+/assets/images/projects/01_summer-house/8.webp
+/assets/images/projects/01_summer-house/9.webp
+/assets/images/projects/02_The-Ultima/Architecture-Landscape/U_1.webp
+/assets/images/projects/02_The-Ultima/Architecture-Landscape/U_2.webp
+/assets/images/projects/02_The-Ultima/Architecture-Landscape/U_3.webp
+/assets/images/projects/02_The-Ultima/Architecture-Landscape/U_4.webp
+/assets/images/projects/02_The-Ultima/Interiors/GF_View_03.webp
+/assets/images/projects/02_The-Ultima/Interiors/U_11.webp
+/assets/images/projects/02_The-Ultima/Interiors/U_5.webp
+/assets/images/projects/02_The-Ultima/Interiors/U_6.webp
+/assets/images/projects/02_The-Ultima/Interiors/U_7.webp
+/assets/images/projects/02_The-Ultima/Interiors/U_8.webp
+/assets/images/projects/02_The-Ultima/Interiors/U_9.webp
+/assets/images/projects/03_Mansion-27/Architecture Landscape /1 2.webp
+/assets/images/projects/03_Mansion-27/Architecture Landscape /2 2.webp
+/assets/images/projects/03_Mansion-27/Architecture Landscape /3 2.webp
+/assets/images/projects/03_Mansion-27/Architecture Landscape /4 2.webp
+/assets/images/projects/04_The-Desert-Bloom/Architecture Landscape /FRONT_With boundary.webp
+/assets/images/projects/04_The-Desert-Bloom/Interiors /01 - Bedroom_Nightstand-Detail.webp
+/assets/images/projects/05_99-Prive/Architecture /AJV Villa 04.webp
+/assets/images/projects/05_99-Prive/Architecture /AJV Villa Front Perspective.webp
+/assets/images/projects/05_99-Prive/Architecture /AJV Villa Front View.webp
+/assets/images/projects/05_99-Prive/Christmas/20 - Living Area Xmas_View 02.webp
+/assets/images/projects/05_99-Prive/Christmas/20 - Living Area Xmas_View 03.webp
+/assets/images/projects/05_99-Prive/Christmas/20 - Living Area Xmas_View 04.webp
+/assets/images/projects/05_99-Prive/Christmas/20 - Living Area Xmas_View 11.webp
+/assets/images/projects/05_99-Prive/Christmas/20 - Living Area Xmas_View 12.webp
+/assets/images/projects/05_99-Prive/Interior /07 - Formal Dining_View 01.webp
+/assets/images/projects/05_99-Prive/Interior /07 - Formal Dining_View 02.webp
+/assets/images/projects/05_99-Prive/Interior /07 - Formal Dining_View 03.webp
+/assets/images/projects/05_99-Prive/Interior /07 - Formal Dining_View 06.webp
+/assets/images/projects/05_99-Prive/Interior /1 (1).webp
+/assets/images/projects/05_99-Prive/Interior /2 (1).webp
+/assets/images/projects/06_The-Edge/12-GG LIVING ROOM VIEW 4.webp
+/assets/images/projects/06_The-Edge/13-GG LIVING ROOM VIEW 5.webp
+/assets/images/projects/06_The-Edge/3-GF DINING VIEW 1.webp
+/assets/images/projects/06_The-Edge/6-GF STAIRCASE VIEW 1.webp
+/assets/images/projects/06_The-Edge/8-GF LIFT.webp
+/assets/images/projects/06_The-Edge/9-GG LIVING ROOM VIEW 1.webp
+/assets/images/projects/08_The-Key-By-Homedge/CAR PARKING/04 - Car Parking_View 04.jpg.webp
+/assets/images/projects/08_The-Key-By-Homedge/SPA/11 - Spa Area_View 01.jpg.webp
+/assets/images/projects/08_The-Key-By-Homedge/SPA/11 - Spa Area_View 02.jpg.webp
+/assets/images/projects/08_The-Key-By-Homedge/SPA/11 - Spa Area_View 03.jpg.webp
+/assets/images/projects/08_The-Key-By-Homedge/STAIRCASE/09 - Staircase_View 02A.jpg.webp
+/assets/images/projects/09_Secret-Garden/1.webp
+/assets/images/projects/162/exterior/exterior-1.webp
+/assets/images/projects/162/exterior/exterior-3.webp
+/assets/images/team/sonali-potdar.webp
+/assets/images/top-view-palm-jumeirah-dubai-600nw-2456170059.webp

@@ -6,6 +6,7 @@ import ContactForm from '../components/sections/ContactForm';
 import Communities from '../components/sections/Communities';
 import Button from '../components/common/Button';
 import ProjectCard from '../components/common/ProjectCard';
+import { optimizedUrl } from '../utils/imageManifest';
 import { projectsData } from '../data/content';
 import { IMAGES } from '../utils/constants';
 import './Home.css';
@@ -97,8 +98,10 @@ const Home = () => {
       <section 
         className="three-cards-section"
         style={{
-          backgroundImage: hoveredCategory 
-            ? `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${categoryImages[hoveredCategory]})`
+          // A CSS background cannot use srcset, so this one asks the manifest
+          // for a single sensibly-sized tier instead of the full-size master.
+          backgroundImage: hoveredCategory
+            ? `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("${optimizedUrl(categoryImages[hoveredCategory], 1600)}")`
             : 'none',
           backgroundSize: 'cover',
           backgroundPosition: 'center',

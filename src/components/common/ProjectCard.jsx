@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import './ProjectCard.css';
 import FlashlightImage from './FlashlightImage';
+import ResponsiveImage from './ResponsiveImage';
 
 const ProjectCard = ({ 
   image, 
@@ -47,7 +48,7 @@ const ProjectCard = ({
             className="project-card-logo"
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
           >
-            <img src={logo} alt="Logo" />
+            <ResponsiveImage src={logo} alt="Logo" sizes="200px" maxWidth={400} />
           </motion.div>
         )}
         {category && <h3 className="project-card-category">{category}</h3>}

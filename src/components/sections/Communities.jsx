@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { communitiesData } from '../../data/content';
+import ResponsiveImage from '../common/ResponsiveImage';
 import './Communities.css';
 
 const Communities = () => {
@@ -31,7 +32,7 @@ const Communities = () => {
         >
           {duplicatedLogos.map((community, index) => (
             <div key={`${community.id}-${index}`} className="community-logo-item">
-              <img src={community.logo} alt={community.name} />
+              <ResponsiveImage src={community.logo} alt={community.name} sizes="240px" maxWidth={400} />
             </div>
           ))}
         </motion.div>

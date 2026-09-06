@@ -16,6 +16,29 @@
   transform-style: preserve-3d;
 }
 
+/*
+ * Background image layer. Replaces the old `background-image` on .hero so the
+ * browser can choose a tier from srcset instead of always fetching full size.
+ */
+.hero-bg-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+}
+
+/* The darkening layer that used to be a linear-gradient inside background-image. */
+.hero-scrim {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+  z-index: 1;
+}
+
 /* Flashlight effect overlay */
 .hero::after {
   content: '';
@@ -32,7 +55,7 @@
   );
   pointer-events: none;
   transition: background 0.05s ease;
-  z-index: 1;
+  z-index: 2; /* above .hero-scrim */
 }
 
 /* Ensure content is above the flashlight overlay */

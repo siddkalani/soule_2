@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { IMAGES } from '../../utils/constants';
+import ResponsiveImage from '../common/ResponsiveImage';
 import ProjectsOverlay from './ProjectsOverlay';
 import './Navbar.css';
 
@@ -186,23 +187,29 @@ const Navbar = () => {
       >
         <div className="nav-container">
           <Link to="/" className="logo">
-            <img
+            {/* These logos were 8000x4500 masters — ~137 MB of decoded bitmap
+                each, for something painted at 200px tall. Now capped at 800px. */}
+            <ResponsiveImage
               src={
                 isMobileView
                   ? (isDarkTheme ? IMAGES.souleLogoNavbarCenterDark : IMAGES.souleLogoNavbarCenter)
                   : (isDarkTheme ? IMAGES.souleLogoNavbarLeftDark : IMAGES.souleLogoNavbarLeft)
               }
               alt="Soule Studio"
+              sizes="(max-width: 768px) 320px, 400px"
+              priority
               className={`logo-image${isMobileView ? ' logo-image--mobile' : ''}`}
             />
           </Link>
           
           <div className="nav-center">
             <Link to="/" className="center-logo-link">
-              <img 
-                src={isDarkTheme ? IMAGES.souleLogoNavbarCenterDark : IMAGES.souleLogoNavbarCenter} 
-                alt="Soule Logo" 
-                className="center-logo" 
+              <ResponsiveImage
+                src={isDarkTheme ? IMAGES.souleLogoNavbarCenterDark : IMAGES.souleLogoNavbarCenter}
+                alt="Soule Logo"
+                sizes="(max-width: 768px) 280px, 360px"
+                priority
+                className="center-logo"
               />
             </Link>
           </div>

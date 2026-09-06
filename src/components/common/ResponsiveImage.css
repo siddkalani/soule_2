@@ -1,0 +1,30 @@
+/*
+ * display:contents removes <picture> from the layout entirely, so the <img>
+ * behaves as a direct child of whatever container it was dropped into. This is
+ * what lets ResponsiveImage replace a bare <img> without touching any of the
+ * existing gallery / card / hero CSS.
+ */
+.rimg {
+  display: contents;
+}
+
+/*
+ * The width/height attributes on the <img> reserve the correct box before the
+ * bytes arrive, which is what removes the layout shift. max-width:100% keeps
+ * that from overflowing any container whose CSS does not already size the image.
+ */
+.rimg-img {
+  max-width: 100%;
+  transition: opacity 320ms ease, background-color 320ms ease;
+}
+
+/* Fade from the dominant-colour placeholder to the decoded image. */
+.rimg-img:not(.is-loaded) {
+  opacity: 0.999; /* keeps the element composited without hiding the colour */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rimg-img {
+    transition: none;
+  }
+}

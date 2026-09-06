@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import './Hero.css';
 import Button from '../common/Button';
+import ResponsiveImage from '../common/ResponsiveImage';
 
 const Hero = ({ title, subtitle, backgroundImage, communityName = '', slideImages = [] }) => {
   const [imageLoadError, setImageLoadError] = useState(false);
@@ -25,19 +26,34 @@ const Hero = ({ title, subtitle, backgroundImage, communityName = '', slideImage
     
     if (isMobile) return; // Don't add flashlight on mobile
 
+    let rafId = null;
+    let rect = null;
+    let point = null;
+    const invalidate = () => { rect = null; };
+
+    // Batched into one frame and with the rect cached, so moving the cursor
+    // across the hero no longer forces a layout flush per event.
     const handleMouseMove = (e) => {
-      const rect = hero.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      
-      hero.style.setProperty('--mouse-x', `${x}px`);
-      hero.style.setProperty('--mouse-y', `${y}px`);
+      point = { x: e.clientX, y: e.clientY };
+      if (rafId) return;
+      rafId = requestAnimationFrame(() => {
+        rafId = null;
+        if (!point) return;
+        rect ??= hero.getBoundingClientRect();
+        hero.style.setProperty('--mouse-x', `${point.x - rect.left}px`);
+        hero.style.setProperty('--mouse-y', `${point.y - rect.top}px`);
+      });
     };
 
     hero.addEventListener('mousemove', handleMouseMove, { passive: true });
-    
+    window.addEventListener('scroll', invalidate, { passive: true });
+    window.addEventListener('resize', invalidate, { passive: true });
+
     return () => {
       hero.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('scroll', invalidate);
+      window.removeEventListener('resize', invalidate);
+      if (rafId) cancelAnimationFrame(rafId);
     };
   }, []);
 
@@ -57,17 +73,30 @@ const Hero = ({ title, subtitle, backgroundImage, communityName = '', slideImage
   }
 
   return (
-    <section 
+    <section
       ref={heroRef}
       className="hero"
-      style={{
-        backgroundImage: imageLoadError
-          ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
-          : `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${baseImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center'
-      }}
+      style={
+        imageLoadError
+          ? { backgroundImage: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' }
+          : undefined
+      }
     >
+      {/* A real <img> rather than a CSS background: background-image cannot use
+          srcset, so every device was downloading the same full-size render for
+          what is the largest element on the page. This is the LCP image. */}
+      {!imageLoadError && baseImage && (
+        <ResponsiveImage
+          src={baseImage}
+          alt=""
+          aria-hidden="true"
+          sizes="100vw"
+          priority
+          className="hero-bg-image"
+          onError={handleImageError}
+        />
+      )}
+      <div className="hero-scrim" aria-hidden="true" />
       {communityName && (
         <div className="hero-community-name">
           {communityName}
@@ -92,15 +121,6 @@ const Hero = ({ title, subtitle, backgroundImage, communityName = '', slideImage
           DISCOVER NOW
         </Button>
       </div>
-      {/* Hidden image for error tracking */}
-      {baseImage && (
-        <img 
-          src={baseImage} 
-          alt="" 
-          style={{ display: 'none' }}
-          onError={handleImageError}
-        />
-      )}
     </section>
   );
 };
